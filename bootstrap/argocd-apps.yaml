@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: argocd-apps
+  namespace: infra-argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/zhenyatsk/demo-gitops
+      revision: HEAD
+      directories:
+      - path: apps/*
+  template:
+    metadata:
+      name: 'argocd-{{path[1]}}'
+    spec:
+      project: default
+      source:
+        repoURL: zhenyatsk/demo-gitops
+        targetRevision: HEAD
+        path: '{{path}}'
+        directory:
+          recurse: true
+      destination:
+        name: in-cluster
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions: []
