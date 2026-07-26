@@ -14,7 +14,8 @@ spec:
       targetRevision: 'main'
       helm:
         valueFiles:
-          - ../golang-values.yaml
+          - values.yaml
+          - golang-values.yaml
           - $service-values/config/values.yaml
     - repoURL: 'https://github.com/zhenyatsk/demo-service.git' 
       targetRevision: main
