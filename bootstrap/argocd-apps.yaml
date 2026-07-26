@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/zhenyatsk/demo-gitops
-      revision: main
+      revision: HEAD
       directories:
       - path: apps/*
   template:
@@ -16,8 +16,8 @@ spec:
     spec:
       project: default
       source:
-        repoURL: zhenyatsk/demo-gitops
-        targetRevision: main
+        repoURL: https://github.com/zhenyatsk/demo-gitops
+        targetRevision: HEAD
         path: '{{path}}'
         directory:
           recurse: true
