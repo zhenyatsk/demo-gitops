@@ -19,3 +19,6 @@ spec:
     - repoURL: 'https://github.com/zhenyatsk/demo-service.git' 
       targetRevision: main
       ref: service-values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
