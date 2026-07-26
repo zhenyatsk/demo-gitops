@@ -16,7 +16,7 @@ spec:
         valueFiles:
           - values.yaml
           - golang-values.yaml
-          - $service-values/config/values.yaml
+          - $service-values/configs/values.yaml
     - repoURL: 'https://github.com/zhenyatsk/demo-service.git' 
       targetRevision: main
       ref: service-values
