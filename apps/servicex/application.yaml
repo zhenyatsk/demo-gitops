@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-servicex
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: app-servicex
+    server: https://kubernetes.default.svc
+  sources:
+    - repoURL: 'https://github.com/zhenyatsk/demo-chart.git'
+      path: helm
+      targetRevision: 'main'
+      helm:
+        valueFiles:
+          - helm/golang-values.yaml
+          - $service-values/config/values.yaml
+    - repoURL: 'https://github.com/zhenyatsk/demo-service.git' 
+      targetRevision: main
+      ref: service-values
