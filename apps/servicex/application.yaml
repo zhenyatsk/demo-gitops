@@ -10,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   sources:
     - repoURL: 'https://github.com/zhenyatsk/demo-chart.git'
-      path: helm
+      path: helm/base
       targetRevision: 'main'
       helm:
         valueFiles:
